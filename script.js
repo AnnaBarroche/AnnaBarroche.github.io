@@ -271,7 +271,7 @@ document.querySelector('#btn-upgrade-auto').addEventListener('click', () => {
     }
 
     jouerSon(SONS.sceptre);
-    afficherToast('⚡ Sceptre amélioré ! +' + sceptreVitesse + ' étoiles/s');
+    afficherToast('Sceptre amélioré ! +' + sceptreVitesse + ' étoiles/s');
     updateAffichage();
 });
 
