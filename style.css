@@ -1,0 +1,465 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Aladin", system-ui;
+    overflow: hidden;
+}
+
+body {
+    background-image: url('image/fond2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* --- TITRE --- */
+
+#titre-joueur {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20;
+}
+
+#bg-titre {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+#contenu-titre {
+    position: relative;
+    padding: 80px 100px;
+    color: black;
+    min-width: 300px;
+}
+
+#nom-titre         { font-size: 80px; }
+#progression-titre { font-size: 22px; margin-top: 4px; }
+
+/* --- BARRE DE PROGRESSION --- */
+
+#barre-progression {
+    position: absolute;
+    top: calc(1rem + 210px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+#barre-etoile-icone {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 6px #ff88ff);
+}
+
+#barre-conteneur {
+    position: relative;
+    width: 460px;
+    height: 18px;
+    border-radius: 10px;
+    background: rgba(10, 0, 30, 0.6);
+    border: 1.5px solid rgba(200, 100, 255, 0.35);
+    overflow: hidden;
+}
+
+#barre-remplissage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    background: linear-gradient(to right, #8800ff, #cc33ff, #ff66ff);
+    transition: width 0.5s ease-out;
+    filter: brightness(1.5) saturate(1.6);
+}
+
+#barre-points-mini {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.mini-point {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    animation: glisserPoint linear infinite;
+    opacity: 0;
+}
+
+@keyframes glisserPoint {
+    0%   { opacity: 0;   transform: translateX(-10px); }
+    15%  { opacity: 1; }
+    85%  { opacity: 0.7; }
+    100% { opacity: 0;   transform: translateX(60px); }
+}
+
+
+/* --- CHAUDRON --- */
+
+#zone-chaudron {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#affichage {
+    color: white;
+    font-size: 70px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+#etoile-compteur {
+    width: 70px;
+    height: 70px;
+}
+
+#chaudron {
+    width: 400px;
+    height: auto;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto -150px;
+    transition: transform 0.05s;
+}
+
+#chaudron:active { transform: scale(0.95); }
+
+/* --- SCEPTRE --- */
+
+#zone-sceptre {
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 20;
+}
+
+#btn-auto {
+    width: 110px;
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 0 8px #00ff88);
+    transition: transform 0.1s, filter 0.1s;
+}
+
+#btn-auto:hover {
+    transform: scale(1.07);
+    filter: drop-shadow(0 0 18px #00ff88);
+}
+
+#btn-auto.actif {
+    animation: brilleSceptre 1s infinite alternate;
+}
+
+@keyframes brilleSceptre {
+    from { filter: drop-shadow(0 0 8px gold); }
+    to   { filter: drop-shadow(0 0 24px gold); }
+}
+
+#label-sceptre {
+    color: white;
+    font-size: 14px;
+    text-shadow: 0 0 8px white;
+}
+
+.btn-upgrade {
+    font-family: "Aladin", system-ui;
+    font-size: 12px;
+    color: white;
+    background: rgba(30, 0, 60, 0.75);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
+    line-height: 1.4;
+}
+
+.btn-upgrade:hover    { background: rgba(80, 0, 120, 0.85); }
+.btn-upgrade:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* --- FIOLES --- */
+
+#zone-fioles {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.etagere {
+    width: 150px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: white;
+    background-image: url('image/inventaire.webp');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.05s;
+    text-align: center;
+}
+
+.etagere:active  { transform: scale(0.95); }
+.etagere img     { height: 55px; width: auto; }
+.nom-fiole       { font-size: 12px; font-weight: bold; width: 100%; text-align: center; }
+.info-fiole      { font-size: 11px; width: 100%; text-align: center; }
+
+.etagere.disabled {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- CRISTAUX FLOTTANTS --- */
+
+.ingredient-flottant {
+    position: fixed;
+    cursor: pointer;
+    z-index: 60;
+    animation: flottement 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px gold);
+    user-select: none;
+}
+
+.ingredient-flottant img {
+    width: 60px;
+    height: auto;
+    display: block;
+}
+
+@keyframes flottement {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
+}
+
+/* --- TEXTE "+N" QUI MONTE AU CLIC --- */
+
+.spawn-etoile {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "Aladin", system-ui;
+    font-size: 24px;
+    color: white;
+    text-shadow: 0 0 8px white;
+    transition: top 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.spawn-etoile img { width: 24px; height: 24px; }
+
+/* --- ÉTOILE FILANTE --- */
+
+.etoile-filante {
+    position: fixed;
+    width: 25px;
+    pointer-events: none;
+    z-index: 10;
+    transition: top 2s linear;
+}
+
+/* --- ANIMATION CHANGEMENT DE RANG --- */
+
+.animation-rang-sorciere {
+    position: fixed;
+    top: 35%;
+    left: -600px;
+    z-index: 99;
+    pointer-events: none;
+    transition: left 2.5s ease-in-out;
+}
+
+.animation-rang-sorciere img {
+    width: 500px;
+    height: auto;
+    filter: drop-shadow(0 0 15px purple);
+}
+
+.animation-rang-texte {
+    position: fixed;
+    top: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Aladin", system-ui;
+    font-size: 60px;
+    color: white;
+    text-shadow: 0 0 20px white, 0 0 40px purple;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+    z-index: 99;
+    pointer-events: none;
+}
+
+/* --- HALO ROUGE POTION INSTABLE --- */
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 200;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(200, 0, 0, 0.55) 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+body.potion-danger::after {
+    opacity: 1;
+    animation: pulseDanger 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulseDanger {
+    from { opacity: 0.6; }
+    to   { opacity: 1; }
+}
+
+/* --- MESSAGES TOAST --- */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 80;
+    pointer-events: none;
+    text-align: center;
+    animation: toastEntree 0.4s ease-out forwards;
+}
+
+@keyframes toastEntree {
+    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0px); }
+}
+
+.toast-inner {
+    position: relative;
+    display: inline-block;
+    font-family: "Aladin", system-ui;
+    font-size: 17px;
+    color: #f0d98a;
+    text-shadow: 0 0 8px rgba(255, 200, 50, 0.8);
+    padding: 14px 32px;
+    background: linear-gradient(160deg, rgba(20, 5, 45, 0.97), rgba(50, 10, 80, 0.95));
+    border: 1px solid rgba(180, 120, 255, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgba(140, 60, 255, 0.5), 0 0 30px rgba(100, 0, 180, 0.25), inset 0 0 20px rgba(80, 0, 150, 0.2);
+    white-space: nowrap;
+}
+
+.toast-inner::before,
+.toast-inner::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: rgba(200, 150, 255, 0.7);
+}
+
+.toast-inner::before { left: 10px; }
+.toast-inner::after  { right: 10px; }
+
+/* --- POPUP VICTOIRE --- */
+
+#popup-victoire {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+#popup-victoire.visible { display: flex; }
+
+#popup-contenu {
+    position: relative;
+    width: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+#popup-img {
+    width: 100%;
+    display: block;
+    filter: brightness(0.6);
+}
+
+#popup-texte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #e8e0d0;
+    width: 90%;
+}
+
+#popup-texte h2  { font-size: 42px; margin-bottom: 12px; text-shadow: 0 0 20px white; }
+#popup-texte p   { font-size: 18px; margin: 6px 0; text-shadow: 0 0 8px white; }
+
+#popup-close {
+    margin-top: 20px;
+    font-family: "Aladin", system-ui;
+    font-size: 18px;
+    padding: 10px 24px;
+    background: transparent;
+    color: #e8e0d0;
+    border: 1px solid #e8e0d0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#popup-close:hover { background: rgba(255,255,255,0.15); }

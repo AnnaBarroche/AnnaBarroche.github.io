@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorcière des étoiles</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
+</head>
+<body>
+<main>
+
+    <div id="titre-joueur">
+        <img src="image/boxtext2.webp" id="bg-titre" alt="">
+        <div id="contenu-titre">
+            <p id="nom-titre">Apprentie</p>
+            <p id="progression-titre"></p>
+        </div>
+    </div>
+
+    <div id="barre-progression">
+        <img id="barre-etoile-icone" src="image/etoile.png" alt="étoile">
+        <div id="barre-conteneur">
+            <div id="barre-remplissage"></div>
+            <div id="barre-points-mini"></div>
+        </div>
+    </div>
+
+    <div id="zone-chaudron">
+        <div id="affichage">0 ⭐</div>
+        <img src="image/chaudron.png" id="chaudron" alt="Chaudron">
+    </div>
+
+    <div id="zone-sceptre">
+        <img src="image/baton.webp" id="btn-auto" alt="Sceptre magique">
+        <p id="label-sceptre">Auto : OFF</p>
+        <button id="btn-upgrade-auto" class="btn-upgrade">
+            Améliorer<br><span id="cout-upgrade-auto"></span>
+        </button>
+    </div>
+
+    <div id="zone-fioles">
+        <div class="etagere" id="fiole1">
+            <img src="image/fioleN1.png" alt="Belladone">
+            <p class="nom-fiole">Belladone</p>
+            <p class="info-fiole"></p>
+        </div>
+        <div class="etagere" id="fiole2">
+            <img src="image/fioleN2.webp" alt="Mandragore">
+            <p class="nom-fiole">Mandragore</p>
+            <p class="info-fiole"></p>
+        </div>
+        <div class="etagere" id="fiole3">
+            <img src="image/fioleN3.webp" alt="Aconit">
+            <p class="nom-fiole">Aconit</p>
+            <p class="info-fiole"></p>
+        </div>
+        <div class="etagere" id="fiole4">
+            <img src="image/fioleN4.webp" alt="Armoise">
+            <p class="nom-fiole">Armoise</p>
+            <p class="info-fiole"></p>
+        </div>
+        <div class="etagere" id="fiole5">
+            <img src="image/fioleN5.webp" alt="Sauge des sorcières">
+            <p class="nom-fiole">Sauge des sorcières</p>
+            <p class="info-fiole"></p>
+        </div>
+    </div>
+
+    <div id="popup-victoire">
+        <div id="popup-contenu">
+            <img src="image/fond_jeu_finit.jpeg" id="popup-img" alt="">
+            <div id="popup-texte">
+                <h2>✦ Grande Sorcière ✦</h2>
+                <p>Tu as maîtrisé les arcanes les plus puissants.</p>
+                <p>La forêt enchantée s'incline devant toi.</p>
+                <button id="popup-close">Continuer à jouer</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
