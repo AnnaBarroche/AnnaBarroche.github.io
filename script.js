@@ -195,7 +195,7 @@ document.querySelector('#chaudron').addEventListener('click', (event) => {
             const perte = Math.floor(compteur * 0.05);
             compteur    = Math.max(0, compteur - perte);
             clicsRecents = 0;
-            afficherToast('💥 Potion instable ! −' + perte.toLocaleString('fr-FR') + ' ⭐');
+            afficherToast('Potion instable ! −' + perte.toLocaleString('fr-FR') + ' ⭐');
             jouerSon(SONS.explosion);
             effetFumee('#ff0000');
             updateAffichage();
@@ -317,13 +317,13 @@ function activerBonusCristal() {
 
     const parClicAvant = parClic;
     cristalMulti       = 2;
-    afficherToast('💎 Cristal collecté ! ×2 pendant 15s');
+    afficherToast('Cristal collecté ! ×2 pendant 15s');
 
     cristalTimer = setTimeout(() => {
         const bonusAchetes = parClic - parClicAvant;
         parClic      = parClicAvant + bonusAchetes;
         cristalMulti = 1;
-        afficherToast('💎 Bonus cristal terminé');
+        afficherToast('Bonus cristal terminé');
         updateAffichage();
     }, 15000);
 }
@@ -341,7 +341,7 @@ function declencherPotion() {
     potionDanger = true;
     document.body.classList.add('potion-danger');
     jouerSon(SONS.potion);
-    afficherToast('⚗️ Potion instable ! Évitez de cliquer trop vite pendant 10s…');
+    afficherToast('Potion instable ! Évitez de cliquer trop vite pendant 10s…');
     effetFumee('#ff6600');
 
     setTimeout(() => {
