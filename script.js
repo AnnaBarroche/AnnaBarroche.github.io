@@ -32,7 +32,7 @@ const SONS = {
     cristal:    new Audio('audio/cristal.mp3'),
     potion:     new Audio('audio/potion.mp3'),
     explosion:  new Audio('audio/explosion-potion-instable.mp3'),
-    sceptre:    new Audio('audio/amélioration-du-sceptre.mp3'),
+    sceptre:    new Audio('audio/amelioration-du-sceptre.mp3'),
     rang:       new Audio('audio/changement-de-rang.mp3'),
     victoire:   new Audio('audio/victoire.mp3'),
 };
