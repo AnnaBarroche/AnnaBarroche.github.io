@@ -123,7 +123,7 @@ const UPGRADES_SCEPTRE = [
 
 function updateAffichage() {
     document.querySelector('#affichage').innerHTML =
-        Math.floor(compteur) + ' <img src="image/etoile.png" alt="étoile" id="etoile-compteur">';
+        Math.floor(compteur) + ' <img src="image/etoile.webp" alt="étoile" id="etoile-compteur">';
     updateFioles();
     updateRang();
     updateSceptre();
@@ -403,7 +403,7 @@ function spawnTexteGain(event, valeur) {
     p.textContent = '+' + valeur;
 
     const img = document.createElement('img');
-    img.src = 'image/etoile.png';
+    img.src = 'image/etoile.webp';
     img.alt = '';
 
     el.appendChild(p);
@@ -419,7 +419,7 @@ function spawnTexteGain(event, valeur) {
 
 function creerEtoileFilante() {
     const el = document.createElement('img');
-    el.src   = 'image/etoile.png';
+    el.src   = 'image/etoile.webp';
     el.alt   = '';
     el.className  = 'etoile-filante';
     el.style.left = Math.random() * window.innerWidth + 'px';
